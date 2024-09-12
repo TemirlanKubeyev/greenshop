@@ -11,15 +11,19 @@
     align-items: center;
 }
 
+/*header*/
 .header--block {
+    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 1200px;
     height: 60px;
-    margin: 8px 0;
-    border-bottom: 0.3px solid rgba(70, 163, 88, 0.5)
+    margin-bottom: 8px;
+    padding-top: 8px;
+    border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+    background-color: #fff;
 }
 
 .header--block--logotype {
@@ -86,4 +90,81 @@
 .basket-icon:hover,
 .login-icon:hover {
     opacity: 0.8;
+}
+
+/*home-page*/
+.wrapper-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1200px;
+    padding-top: 90px;
+}
+
+.welcome-box {
+    height: 450px;
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.welcome-box-info {
+    width: 540px;
+    color: rgba(61, 61, 61, 1);
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+h1 {
+    font-size: 65px;
+    font-weight: 900;
+}
+
+h1 span {
+    white-space: nowrap;
+}
+
+.green-text {
+    color: green;
+}
+
+.welcome {
+    font-weight: 500;
+}
+
+.grey-text {
+    color: rgba(114, 114, 114, 1);
+    margin-bottom: 30px;
+}
+
+.btn {
+    width: 140px;
+    height: 40px;
+    background: rgba(70, 163, 88, 1);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: rgba(70, 163, 110, 1);
+}
+
+.welcome-box-flower {
+    width: 518px;
+    position: relative;
+}
+
+.big_flower {
+    position: absolute;
+    bottom: 0;
+}
+
+.small_flower {
+    position: absolute;
+    bottom: 25px;
+    left: 55px;
 }
