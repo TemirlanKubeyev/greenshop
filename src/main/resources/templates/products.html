@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Home</title>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="wrapper">
+    <div class="wrapper-box">
+        <div class="welcome-box">
+            <div class="welcome-box-info">
+                <span class="welcome">WELCOME TO GREENSHOP</span>
+                <h1>
+                    <span>LET’S MAKE A</span>
+                    <span>BETTER <span class="green-text">PLANET</span></span>
+                </h1>
+                <span class="grey-text">
+                    We are an online plant shop offering
+                    a wide range of cheap and trendy plants.
+                    Use our plants to create an unique Urban Jungle.
+                    Order your favorite plants!
+                </span>
+                <button class="btn">SHOP NOW</button>
+            </div>
+            <div class="welcome-box-flower">
+                <img src="/images/big_flower.svg" class="big_flower">
+                <img src="/images/small_flower.svg" class="small_flower">
+            </div>
+        </div>
+    </div>
+    <div th:each="product : ${products}">
+        <span th:text="${product.name}"></span>
+        <span th:text="${product.price}"></span>
+        <span th:text="${product.size}"></span>
+        <span th:text="${product.category.name}"></span>
+    </div>
+</div>
+</body>
+</html>
