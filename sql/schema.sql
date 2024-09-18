@@ -1,11 +1,12 @@
-drop table category;
+drop table if exists product;
+drop table if exists category;
 
 create table category (
 	id serial8 primary key,
 	name varchar
 );
 
-create table products (
+create table product (
     id serial8 primary key,
     name varchar,
     price varchar,

@@ -30,11 +30,38 @@
             </div>
         </div>
     </div>
-    <div th:each="product : ${products}">
-        <span th:text="${product.name}"></span>
-        <span th:text="${product.price}"></span>
-        <span th:text="${product.size}"></span>
-        <span th:text="${product.category.name}"></span>
+    <div class="product-category-box">
+        <div class="category-box">
+            <span class="category-text">Categories</span>
+            <br>
+            <div th:each="cat : ${categories}" class="category-box-box">
+                <span th:text="${cat.getName()}"></span>
+                <span th:text="'(' + ${cat.product.size()} + ')'"></span>
+            </div>
+            <br>
+            <span class="category-text">Size</span>
+            <br>
+            <div class="size-box">
+                <div class="category-box-box">
+                    <span>Small</span>
+                    <span th:text="'(' + ${small} + ')'"></span>
+                </div>
+                <div class="category-box-box">
+                    <span>Medium</span>
+                    <span th:text="'(' + ${medium} + ')'"></span>
+                </div>
+                <div class="category-box-box">
+                    <span>Large</span>
+                    <span th:text="'(' + ${large} + ')'"></span>
+                </div>
+            </div>
+        </div>
+        <div class="product-block">
+            <div th:each="product : ${products}" class="product-box">
+                <span th:text="${product.name}"></span>
+                <span th:text="${product.price}"></span>
+            </div>
+        </div>
     </div>
 </div>
 </body>

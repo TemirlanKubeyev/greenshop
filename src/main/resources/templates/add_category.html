@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Home</title>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="wrapper">
+    <div class="wrapper-box">
+        <h2>Add Category</h2>
+        <br>
+        <form action="/add_category" method="post">
+            <input name="name" placeholder="input category name">
+            <button>ADD CATEGORY</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

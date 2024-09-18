@@ -9,15 +9,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-
     private String name;
-
     private int price;
-
     @Enumerated
     private Size size;
 
