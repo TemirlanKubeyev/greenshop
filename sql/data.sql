@@ -9,7 +9,7 @@ values ('House Plants'),
 ('Gardening'),
 ('Accessories');
 
-insert into products (category_id, name, price, size)
-values (1, 'Barberton Daisy', 119, 0),
-(2, 'Angel Wing Begonia', 169, 1),
-(3, 'African Violet', 199, 2);
+insert into product (category_id, name, price, size, photo)
+values (1, 'Barberton Daisy', 119, 0, 'files/barberton_daisy.png'),
+(2, 'Angel Wing Begonia', 169, 1, 'files/Angel_Wing_Begonia.png'),
+(3, 'African Violet', 199, 2, 'files/1727807386266Beach_Spider_Lily.png');

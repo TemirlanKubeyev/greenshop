@@ -12,6 +12,7 @@ create table product (
     price varchar,
     size int2,
     category_id int8,
+    photo varchar,
     foreign key (category_id) references category (id)
 );
 

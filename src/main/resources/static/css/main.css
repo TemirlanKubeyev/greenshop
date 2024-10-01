@@ -59,8 +59,7 @@
     text-align: center;
 }
 
-.header--block--icons-box:hover,
-.header--block--icons-box:focus {
+.header--block--icons-box:hover {
     border-bottom: 3px solid rgba(70, 163, 88, 1);
     font-weight: 600;
 }
@@ -204,7 +203,9 @@ h1 span {
 
 .product-block {
     display: flex;
-    width: 840px;
+    flex-wrap: wrap;
+    width: 850px;
+    justify-content: space-between;
 }
 
 .product-box {
@@ -212,9 +213,13 @@ h1 span {
     flex-direction: column;
     width: 250px;
     height: 350px;
+    justify-content: space-between;
 }
 
-
+.price {
+    color: rgba(70, 163, 88, 1);
+    font-size: 18px;
+}
 
 
 

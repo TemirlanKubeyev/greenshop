@@ -13,7 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,9 +57,10 @@ public class ProductController {
     public String addProduct(@RequestParam(name = "name") String name,
                              @RequestParam(name = "price") int price,
                              @RequestParam(name = "size") Size size,
-                             @RequestParam(name = "category_id") Long categoryId) {
+                             @RequestParam(name = "category_id") Long categoryId,
+                             @RequestParam(name = "photo") MultipartFile photo) throws IOException {
         System.out.println(size);
-        productService.createProduct(name, price, size, categoryId);
+        productService.createProduct(name, price, size, categoryId, photo);
         return "redirect:/add_product";
     }
 

@@ -3,6 +3,8 @@ package kz.greenshop.greenshop.Models;
 import jakarta.persistence.*;
 import kz.greenshop.greenshop.Models.enumaration.Size;
 
+import java.io.File;
+
 @Entity
 @Table(name = "product")
 public class Product {
@@ -16,6 +18,7 @@ public class Product {
     private int price;
     @Enumerated
     private Size size;
+    private String photo;
 
     public Long getId() {
         return id;
@@ -55,5 +58,13 @@ public class Product {
 
     public void setSize(Size size) {
         this.size = size;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

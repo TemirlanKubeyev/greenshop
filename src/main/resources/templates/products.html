@@ -58,8 +58,11 @@
         </div>
         <div class="product-block">
             <div th:each="product : ${products}" class="product-box">
-                <span th:text="${product.name}"></span>
-                <span th:text="${product.price}"></span>
+                <img th:src="@{/images?file=__${product.getPhoto()}__}">
+                <div class="size-box">
+                    <span th:text="${product.name}"></span>
+                    <span th:text="'$'+${product.price}" class="price"></span>
+                </div>
             </div>
         </div>
     </div>
