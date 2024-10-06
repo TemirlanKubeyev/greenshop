@@ -34,27 +34,36 @@
         <div class="category-box">
             <span class="category-text">Categories</span>
             <br>
-            <div th:each="cat : ${categories}" class="category-box-box">
-                <span th:text="${cat.getName()}"></span>
-                <span th:text="'(' + ${cat.product.size()} + ')'"></span>
-            </div>
-            <br>
-            <span class="category-text">Size</span>
-            <br>
-            <div class="size-box">
-                <div class="category-box-box">
-                    <span>Small</span>
-                    <span th:text="'(' + ${small} + ')'"></span>
+            <form action="/products" method="post">
+                <div th:each="cat : ${categories}" class="category-box-box">
+                    <div class="radio">
+                        <input type="radio" th:value="${cat.getId()}" name="category">
+                        <span th:text="${cat.getName()}" class="radio-text"></span>
+                    </div>
+                    <span th:text="'(' + ${cat.product.size()} + ')'"></span>
                 </div>
-                <div class="category-box-box">
-                    <span>Medium</span>
-                    <span th:text="'(' + ${medium} + ')'"></span>
+                <br>
+                <span class="category-text">Size</span>
+                <br>
+                <div class="size-box">
+                    <div th:each="size : ${sizes}" class="category-box-box">
+                        <div class="radio">
+                            <input type="radio" th:value="${size.ordinal()}" name="size">
+                            <span class="radio-text" th:text="${size}"></span>
+                        </div>
+                        <div th:if="${size.name()}=='Small'">
+                            <span th:text="'(' + ${small} + ')'"></span>
+                        </div>
+                        <div th:if="${size.name()}=='Medium'">
+                            <span th:text="'(' + ${medium} + ')'"></span>
+                        </div>
+                        <div th:if="${size.name()}=='Large'">
+                            <span th:text="'(' + ${large} + ')'"></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="category-box-box">
-                    <span>Large</span>
-                    <span th:text="'(' + ${large} + ')'"></span>
-                </div>
-            </div>
+                <button type="submit" class="btn">Отсортировать</button>
+            </form>
         </div>
         <div class="product-block">
             <div th:each="product : ${products}" class="product-box">
@@ -64,6 +73,7 @@
                     <span th:text="'$'+${product.price}" class="price"></span>
                 </div>
             </div>
+            <span th:text="${emptyProducts}"></span>
         </div>
     </div>
 </div>

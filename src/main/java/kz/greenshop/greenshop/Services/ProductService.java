@@ -44,4 +44,21 @@ public class ProductService {
         productRepository.save(product);
     }
 
+    public List<Product> getFilteredProducts(String categoryId, String size) {
+        if (categoryId == null && size == null || categoryId.equals("all") && size.equals("all")) {
+            return productRepository.findAll();
+        } else if (size.equals("all")) {
+            Category category = categoryRepository.findById(Long.parseLong(categoryId)).orElseThrow();
+            return productRepository.getProductsByCategory(category);
+        } else if (categoryId.equals("all")) {
+            Size[] sizes1 = Size.values();
+            Size size1 = sizes1[Integer.parseInt(size)];
+            return productRepository.getProductsBySize(size1);
+        } else {
+            Category category = categoryRepository.findById(Long.parseLong(categoryId)).orElseThrow();
+            Size[] sizes1 = Size.values();
+            Size size1 = sizes1[Integer.parseInt(size)];
+            return productRepository.getProductsByCategoryAndSize(category, size1);
+        }
+    }
 }

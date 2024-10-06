@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -31,18 +30,31 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public String getProducts(Model model) {
-        List<Product> productList = productRepository.findAll();
-        model.addAttribute("products", productList);
+    public String getProducts(Model model, @RequestParam(value = "category", required = false) String categoryId,
+                              @RequestParam(value = "size", required = false) String size) {
+        List<Product> products = productService.getFilteredProducts(categoryId, size);
+        model.addAttribute("products", products);
+        if (products.isEmpty()) {
+            String empty = "товаров по таким параметрам отсутствуют!";
+            model.addAttribute("emptyProducts", empty);
+        }
         List<Category> categories = categoryRepository.findAll();
         model.addAttribute("categories", categories);
-        List<Product> smallProducts = productRepository.getProductsBySize(Size.Small);
-        model.addAttribute("small", smallProducts.size());
-        List<Product> mediumProducts = productRepository.getProductsBySize(Size.Medium);
-        model.addAttribute("medium", mediumProducts.size());
-        List<Product> largeProducts = productRepository.getProductsBySize(Size.Large);
-        model.addAttribute("large", largeProducts.size());
+        Size[] sizes = Size.values();
+        model.addAttribute("sizes", sizes);
+        int smallProducts = productRepository.getProductsBySize(Size.Small).size();
+        int mediumProducts = productRepository.getProductsBySize(Size.Medium).size();
+        int largeProducts = productRepository.getProductsBySize(Size.Large).size();
+        model.addAttribute("small", smallProducts);
+        model.addAttribute("medium", mediumProducts);
+        model.addAttribute("large", largeProducts);
         return "products";
+    }
+
+    @PostMapping("/products")
+    public String getProduct(@RequestParam(name = "category", required = false, defaultValue = "all") String categoryId,
+                             @RequestParam(name = "size", required = false, defaultValue = "all") String size) {
+        return "redirect:/products?category=" + categoryId + "&size=" + size;
     }
 
     @GetMapping("/add_product")

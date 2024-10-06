@@ -199,6 +199,7 @@ h1 span {
 .size-box {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .product-block {
@@ -221,5 +222,12 @@ h1 span {
     font-size: 18px;
 }
 
+.radio {
+    display: flex;
+    align-items: center;
+}
 
+.radio-text {
+    margin-left: 10px;
+}
 
