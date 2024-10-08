@@ -231,3 +231,19 @@ h1 span {
     margin-left: 10px;
 }
 
+.home-shop {
+    align-self: start;
+}
+
+.bold-text {
+    font-weight: 600;
+}
+
+.product-view-images {
+    width: 448px;
+    height: 573px;
+    display: flex;
+    flex-direction: column;
+}
+
+

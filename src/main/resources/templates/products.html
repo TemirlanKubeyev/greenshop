@@ -62,14 +62,14 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn">Отсортировать</button>
+                <button type="submit" class="btn">Filter</button>
             </form>
         </div>
         <div class="product-block">
             <div th:each="product : ${products}" class="product-box">
                 <img th:src="@{/images?file=__${product.getPhoto()}__}">
                 <div class="size-box">
-                    <span th:text="${product.name}"></span>
+                    <a th:href="'/product_view/' + ${product.getId()}" th:text="${product.name}"></a>
                     <span th:text="'$'+${product.price}" class="price"></span>
                 </div>
             </div>

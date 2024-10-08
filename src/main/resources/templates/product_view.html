@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Home</title>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="wrapper">
+    <div class="wrapper-box">
+        <span class="home-shop"><span class="bold-text">Home</span> / Shop</span>
+        <div class="welcome-box">
+            <div class="product-view-images">
+                <img th:src="@{/images?file=__${product.getPhoto()}__}">
+            </div>
+            <div class="product-view-images">
+                <h2 th:text="${product.getName()}"></h2>
+                <span class="price" th:text="'$'+${product.getPrice()}"></span>
+                <span th:text="${product.getSize()}"></span>
+                <span th:text="${product.getCategory().getName()}"></span>
+                <span th:text="${product.getShort_desc()}"></span>
+                <p th:text="${product.getDescription()}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
