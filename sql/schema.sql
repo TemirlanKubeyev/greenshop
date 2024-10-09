@@ -24,3 +24,10 @@ create table review (
     product_id int8,
     foreign key (product_id) references product (id)
 );
+
+create table cart (
+    id serial8 primary key,
+    quantity int4,
+    product_id int8,
+    foreign key (product_id) references product (id)
+);

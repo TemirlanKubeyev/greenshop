@@ -3,6 +3,7 @@ package kz.greenshop.greenshop.Controllers;
 
 import kz.greenshop.greenshop.Models.Category;
 import kz.greenshop.greenshop.Models.Product;
+import kz.greenshop.greenshop.Models.Review;
 import kz.greenshop.greenshop.Models.enumaration.Size;
 import kz.greenshop.greenshop.Repositories.CategoryRepository;
 import kz.greenshop.greenshop.Repositories.ProductRepository;
@@ -81,6 +82,12 @@ public class ProductController {
     public String productView(@PathVariable(value = "id") long id, Model model) {
         Product product = productRepository.findById(id).orElseThrow();
         model.addAttribute("product", product);
+        int averageScoreProduct = productService.getAverageScoreProduct(product);
+        model.addAttribute("averageScore", averageScoreProduct);
+        int reviewQuantity = productService.getReviewQuantity(product);
+        model.addAttribute("reviewQuantity", reviewQuantity);
+        List<Product> relatedProducts = productService.getRelatedProducts(product);
+        model.addAttribute("relatedProducts", relatedProducts);
         return "product_view";
     }
 

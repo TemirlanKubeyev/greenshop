@@ -17,10 +17,30 @@
             <div class="product-view-images">
                 <h2 th:text="${product.getName()}"></h2>
                 <span class="price" th:text="'$'+${product.getPrice()}"></span>
+                <span th:text="${averageScore}"></span>
+                <span th:text="${reviewQuantity} + ' Customer Review'"></span>
                 <span th:text="${product.getSize()}"></span>
+                <form th:action="'/product_view' + ${product.getId()}" method="post">
+                    
+                </form>
                 <span th:text="${product.getCategory().getName()}"></span>
                 <span th:text="${product.getShort_desc()}"></span>
                 <p th:text="${product.getDescription()}"></p>
+            </div>
+            <div th:each="review : ${product.getReviews()}">
+                <span th:text="review"></span>
+            </div>
+            <div class="related-products">
+                <div th:each="product : ${relatedProducts}" class="product-box">
+                    <img th:src="@{/images?file=__${product.getPhoto()}__}">
+                    <div class="size-box">
+                        <a th:href="'/product_view/' + ${product.getId()}" th:text="${product.name}"></a>
+                        <span th:text="'$'+${product.price}" class="price"></span>
+                    </div>
+                </div>
+                <div th:if="${relatedProducts.isEmpty()}">
+                    <span>Empty</span>
+                </div>
             </div>
         </div>
     </div>

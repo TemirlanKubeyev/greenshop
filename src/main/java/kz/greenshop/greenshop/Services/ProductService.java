@@ -2,6 +2,7 @@ package kz.greenshop.greenshop.Services;
 
 import kz.greenshop.greenshop.Models.Category;
 import kz.greenshop.greenshop.Models.Product;
+import kz.greenshop.greenshop.Models.Review;
 import kz.greenshop.greenshop.Models.enumaration.Size;
 import kz.greenshop.greenshop.Repositories.CategoryRepository;
 import kz.greenshop.greenshop.Repositories.ProductRepository;
@@ -61,4 +62,24 @@ public class ProductService {
             return productRepository.getProductsByCategoryAndSize(category, size1);
         }
     }
+
+    public int getAverageScoreProduct(Product product) {
+        int averageScore = 0;
+        for (Review review : product.getReviews()) {
+            averageScore += review.getScore();
+        }
+        return averageScore/product.getReviews().size();
+    }
+
+    public int getReviewQuantity(Product product) {
+        return product.getReviews().size();
+    }
+
+    public List<Product> getRelatedProducts(Product product) {
+        Category categoryId = product.getCategory();
+        List<Product> relatedProducts = productRepository.getProductsByCategory(categoryId);
+        relatedProducts.remove(product);
+        return relatedProducts;
+    }
+
 }
