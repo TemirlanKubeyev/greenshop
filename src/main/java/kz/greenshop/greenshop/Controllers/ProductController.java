@@ -5,6 +5,7 @@ import kz.greenshop.greenshop.Models.Category;
 import kz.greenshop.greenshop.Models.Product;
 import kz.greenshop.greenshop.Models.Review;
 import kz.greenshop.greenshop.Models.enumaration.Size;
+import kz.greenshop.greenshop.Repositories.CartRepository;
 import kz.greenshop.greenshop.Repositories.CategoryRepository;
 import kz.greenshop.greenshop.Repositories.ProductRepository;
 import kz.greenshop.greenshop.Services.ProductService;
@@ -29,7 +30,11 @@ public class ProductController {
     private CategoryRepository categoryRepository;
 
     @Autowired
+    private CartRepository cartRepository;
+
+    @Autowired
     private ProductService productService;
+
 
     @GetMapping("/products")
     public String getProducts(Model model, @RequestParam(value = "category", required = false) String categoryId,

@@ -20,8 +20,11 @@
                 <span th:text="${averageScore}"></span>
                 <span th:text="${reviewQuantity} + ' Customer Review'"></span>
                 <span th:text="${product.getSize()}"></span>
-                <form th:action="'/product_view' + ${product.getId()}" method="post">
-                    
+                <form th:action="'/product_view/' + ${product.getId()}" method="post">
+                    <input name="quantity" th:value="1" th:text="1" disabled>
+                    <input type="hidden" name="product" th:value="${product.id}">
+                    <button name="action" value="buy_now" class="btn" type="submit">BUY NOW</button>
+                    <button name="action" value="add_to_cart" class="btn" type="submit">ADD TO CART</button>
                 </form>
                 <span th:text="${product.getCategory().getName()}"></span>
                 <span th:text="${product.getShort_desc()}"></span>

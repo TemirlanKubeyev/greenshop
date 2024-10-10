@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Home</title>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="wrapper">
+    <div class="wrapper-box">
+        <div class="welcome-box">
+            <div th:each="cart : ${carts}">
+                <span th:text="${cart.getProduct().getName()}"></span>
+                <span th:text="${cart.getQuantity()}"></span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

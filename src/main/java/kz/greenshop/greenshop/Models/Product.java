@@ -2,7 +2,9 @@ package kz.greenshop.greenshop.Models;
 
 import jakarta.persistence.*;
 import kz.greenshop.greenshop.Models.enumaration.Size;
+import org.w3c.dom.Text;
 
+import java.awt.*;
 import java.io.File;
 import java.util.List;
 
@@ -34,6 +36,7 @@ public class Product {
     private String photo;
 
     private String short_desc;
+
     private String description;
 
     public String getShort_desc() {

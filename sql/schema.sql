@@ -1,4 +1,4 @@
-drop table if exists product, category, review;
+drop table if exists product, category, review, cart;
 
 create table category (
 	id serial8 primary key,
