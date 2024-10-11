@@ -1,6 +1,7 @@
 package kz.greenshop.greenshop.Controllers;
 
 
+import kz.greenshop.greenshop.Models.Cart;
 import kz.greenshop.greenshop.Models.Category;
 import kz.greenshop.greenshop.Models.Product;
 import kz.greenshop.greenshop.Models.Review;
@@ -84,7 +85,8 @@ public class ProductController {
     }
 
     @GetMapping("/product_view/{id}")
-    public String productView(@PathVariable(value = "id") long id, Model model) {
+    public String productView(@PathVariable(value = "id") long id,
+            @RequestParam(name = "quantity", defaultValue = "1") int quantity, Model model) {
         Product product = productRepository.findById(id).orElseThrow();
         model.addAttribute("product", product);
         int averageScoreProduct = productService.getAverageScoreProduct(product);
@@ -93,9 +95,26 @@ public class ProductController {
         model.addAttribute("reviewQuantity", reviewQuantity);
         List<Product> relatedProducts = productService.getRelatedProducts(product);
         model.addAttribute("relatedProducts", relatedProducts);
+        model.addAttribute("quantity", quantity);
         return "product_view";
     }
 
+    @PostMapping("/product_view/{id}/inc")
+    public String increaseQuantity(@PathVariable(value = "id") long id,
+                                   @RequestParam(name = "quantity") int quantity) {
+        quantity++;
+        return "redirect:/product_view/" + id + "?quantity=" + quantity;
+    }
+
+    @PostMapping("/product_view/{id}/dec")
+    public String decreaseQuantity(@PathVariable(value = "id") long id,
+            @RequestParam(name = "quantity") int quantity) {
+        quantity--;
+        if (quantity==0) {
+            return "redirect:/product_view/" + id;
+        }
+        return "redirect:/product_view/" + id +"?quantity=" + quantity;
+    }
 
 }
 
