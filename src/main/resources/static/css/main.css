@@ -82,14 +82,13 @@
     height: 24px;
 }
 
-.login-icon {
-    width: 100px;
+.login {
+    max-width: 90px;
     height: 35px;
 }
 
 .search-icon:hover,
-.basket-icon:hover,
-.login-icon:hover {
+.basket-icon:hover {
     opacity: 0.8;
 }
 
@@ -151,7 +150,9 @@ h1 span {
 }
 
 .btn:hover {
-    background: rgba(70, 163, 110, 1);
+    color: rgba(70, 163, 88, 1);
+    border: 1px solid rgba(70, 163, 88, 1);
+    background: white;
 }
 
 .welcome-box-flower {
@@ -220,6 +221,7 @@ h1 span {
 .price {
     color: rgba(70, 163, 88, 1);
     font-size: 18px;
+    font-weight: 600;
 }
 
 .radio {
@@ -240,10 +242,102 @@ h1 span {
 }
 
 .product-view-images {
-    width: 448px;
+    width: 580px;
     height: 573px;
     display: flex;
     flex-direction: column;
 }
 
+.for_image {
+    align-items: center;
+}
+
+.image {
+    width: 440px;
+    height: 450px;
+    align-items: center;
+}
+
+.block--first {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 8px 0;
+    padding: 5px 0;
+    border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+}
+
+.star-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.filled-star {
+    color: rgba(255, 172, 12, 1);
+}
+
+.empty-star {
+    color: rgba(196, 196, 196, 1);
+}
+
+.margin-left {
+    margin-left: 12px;
+}
+
+.size-box-2 {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}
+
+.size-box-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(234, 234, 234, 1);
+    color: rgba(114, 114, 114, 1);
+    margin-right: 10px;
+}
+
+.active_size {
+    color: rgba(70, 163, 88, 1);
+    border: 1px solid rgba(70, 163, 88, 1)
+}
+
+.form-buy-add-cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 430px;
+    margin: 10px 0;
+}
+
+.quantity {
+    width: 25px;
+    border: none;
+    font-size: 20px;
+    text-align: center;
+}
+
+.btn-dec-inc {
+    width: 33px;
+    height: 38px;
+    background: rgba(70, 163, 88, 1);
+    border-radius: 29px;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.btn-dec-inc:hover {
+    color: rgba(70, 163, 88, 1);
+    border: 1px solid rgba(70, 163, 88, 1);
+    background: white;
+}
 

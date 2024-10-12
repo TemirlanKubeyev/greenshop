@@ -15,6 +15,16 @@ public class Review {
 
     private int score;
 
+    private String reviewText;
+
+    public String getReviewText() {
+        return reviewText;
+    }
+
+    public void setReviewText(String reviewText) {
+        this.reviewText = reviewText;
+    }
+
     public int getScore() {
         return score;
     }

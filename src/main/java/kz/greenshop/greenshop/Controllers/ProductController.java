@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -89,13 +90,14 @@ public class ProductController {
             @RequestParam(name = "quantity", defaultValue = "1") int quantity, Model model) {
         Product product = productRepository.findById(id).orElseThrow();
         model.addAttribute("product", product);
-        int averageScoreProduct = productService.getAverageScoreProduct(product);
+        double averageScoreProduct = productService.getAverageScoreProduct(product);
         model.addAttribute("averageScore", averageScoreProduct);
         int reviewQuantity = productService.getReviewQuantity(product);
         model.addAttribute("reviewQuantity", reviewQuantity);
         List<Product> relatedProducts = productService.getRelatedProducts(product);
         model.addAttribute("relatedProducts", relatedProducts);
         model.addAttribute("quantity", quantity);
+        model.addAttribute("sizes", productService.getSizes());
         return "product_view";
     }
 

@@ -21,4 +21,5 @@ Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis f
 (3, 'African Violet', 199, 2, 'files/1727807386266Beach_Spider_Lily.png', null, null);
 
 insert into review (score, review_text, product_id)
-values (5, 'nice product', 1);
+values (5, 'nice product', 1),
+       (4, 'nice product', 1);

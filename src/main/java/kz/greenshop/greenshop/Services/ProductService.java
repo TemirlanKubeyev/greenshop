@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -63,12 +64,17 @@ public class ProductService {
         }
     }
 
-    public int getAverageScoreProduct(Product product) {
-        int averageScore = 0;
-        for (Review review : product.getReviews()) {
-            averageScore += review.getScore();
+    public double getAverageScoreProduct(Product product) {
+        double averageScore = 0;
+        List<Review> reviews = product.getReviews();
+        if (reviews.isEmpty()) {
+            return averageScore;
+        }else {
+            for (Review review : reviews) {
+                averageScore += review.getScore();
+            }
+            return averageScore/product.getReviews().size();
         }
-        return averageScore/product.getReviews().size();
     }
 
     public int getReviewQuantity(Product product) {
@@ -81,5 +87,14 @@ public class ProductService {
         relatedProducts.remove(product);
         return relatedProducts;
     }
+
+    public HashMap<Character, String> getSizes() {
+        HashMap<Character, String> sizes = new HashMap<>();
+        sizes.put('S', "Small");
+        sizes.put('M', "Medium");
+        sizes.put('L', "Large");
+        return sizes;
+    }
+
 
 }
