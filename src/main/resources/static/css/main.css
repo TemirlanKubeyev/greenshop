@@ -19,7 +19,7 @@
     justify-content: space-between;
     align-items: center;
     width: 1200px;
-    height: 60px;
+    height: 68px;
     margin-bottom: 8px;
     padding-top: 8px;
     border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
@@ -136,6 +136,10 @@ h1 span {
 .grey-text {
     color: rgba(114, 114, 114, 1);
     margin-bottom: 30px;
+}
+
+.grey {
+    color: rgba(114, 114, 114, 1);
 }
 
 .btn {
@@ -339,5 +343,51 @@ h1 span {
     color: rgba(70, 163, 88, 1);
     border: 1px solid rgba(70, 163, 88, 1);
     background: white;
+}
+
+.description-reviews-head {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+    margin-bottom: 10px;
+}
+
+.description_and_reviews {
+    color: rgba(114, 114, 114, 1);
+    position: relative;
+    width: inherit;
+}
+
+.desc,
+.review {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    color: rgba(61, 61, 61, 1);
+}
+
+.description-text,
+.reviews-block {
+    position: absolute;
+    top: 50px;
+    display: none;
+}
+
+.desc:focus,
+.review:focus {
+    border-bottom: 2px solid rgba(70, 163, 88, 0.5);
+    color: rgba(70, 163, 88, 1);
+}
+
+.desc:focus ~ .description-text,
+.review:focus ~ .reviews-block {
+    display: block;
+}
+
+.review-box {
+    display: flex;
 }
 

@@ -26,7 +26,7 @@
                 </div>
                 <h4>Short Description:</h4>
                 <br>
-                <span class="grey-text" th:text="${product.getShort_desc()}"></span>
+                <span class="grey" th:text="${product.getShort_desc()}"></span>
                 <br>
                 <h4>Size:</h4>
                 <div  class="size-box-2">
@@ -51,15 +51,27 @@
                         <button name="action" value="add_to_cart" class="btn" type="submit">ADD TO CART</button>
                     </form>
                 </div>
+                <br>
                 <span class="grey-text" th:text="'Categories: ' + ${product.getCategory().getName()}"></span>
             </div>
         </div>
         <div class="description_and_reviews">
-            <div class="description-text">
-                <p th:text="${product.getDescription()}"></p>
-            </div>
-            <div class="reviews-block" th:each="review : ${product.getReviews()}">
-                <span th:text="${review.getReviewText()}"></span>
+            <div class="description-reviews-head">
+                <div class="bold-text desc" role="button" tabindex="0">
+                    <span>Product Description</span>
+                </div>
+                <div class="bold-text review margin-left" role="button" tabindex="0">
+                    <span th:text="'Reviews (' + ${product.getReviews().size()} + ')'"></span>
+                </div>
+                <div class="description-text">
+                    <p th:text="${product.getDescription()}"></p>
+                </div>
+                <div class="reviews-block">
+                    <div th:each="review : ${product.getReviews()}" class="review-box">
+                        <span th:text="${review.getReviewText()}"></span>
+                        <span th:text="${review.getScore()}" class="margin-left"></span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="related-products">
